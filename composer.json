@@ -1,0 +1,20 @@
+{
+    "name": "rplansky/credit-card",
+    "description": "Simple package to generate and validate credit card numbers in PHP",
+    "keywords": ["credit-card", "helper", "validator"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ricardo Plansky",
+            "homepage": "http://www.rplansky.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Plansky\\CreditCard": "src/"
+        }
+    }
+}
