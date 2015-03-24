@@ -2,12 +2,12 @@
 namespace Plansky\CreditCard;
 
 /**
-* It calculates the sum of a given number using Luhm's algorithm
+* It calculates the sum of a given number using Luhn's algorithm
 */
 class LuhnCalculator
 {
     /**
-     * Executes Luhm algorithm over the given number and return the sum. This
+     * Executes Luhn algorithm over the given number and return the sum. This
      * method does not include last digit of credit card number (verification
      * digit).
      *

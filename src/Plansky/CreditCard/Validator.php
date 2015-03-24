@@ -2,13 +2,13 @@
 namespace Plansky\CreditCard;
 
 /**
-* Validates credit card numbers using the Luhm algorithm. This validator does
-* not validates BIN and specific brand or bank algorithms.
+* Validates credit card numbers using the Luhn algorithm. This validator does
+* not validates BIN and specific brand or bank alrogithms.
 */
 class Validator
 {
     /**
-     * Validates the given number using Luhm algorithm
+     * Validates the given number using Luhn algorithm
      *
      * @param  string|integer $number
      *
