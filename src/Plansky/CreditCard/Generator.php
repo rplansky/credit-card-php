@@ -56,9 +56,11 @@ class Generator
      */
     private function getRand($length)
     {
-        return rand(
-            '9' . str_repeat('0', $length - 1),
-            str_repeat('9', $length)
-        );
+        $rand = '';
+        for ($index = 1; $index <= $length; $index++) {
+            $rand .= rand(0, 9);
+        }
+
+        return $rand;
     }
 }
