@@ -40,4 +40,18 @@ class LuhmCalculator
     {
         return 10 - ($this->sum($number) % 10 ?: 10);
     }
+
+    /**
+     * Multiplies number by two and decrease 9 if the number is greater than 10
+     *
+     * @param integer $number
+     *
+     * @return integer
+     */
+    private function multiplyNumber($number)
+    {
+        $result = $number * 2;
+
+        return ($result >= 10) ? $result - 9 : $result;
+    }
 }
