@@ -3,7 +3,7 @@ namespace Plansky\CreditCard;
 
 /**
 * Validates credit card numbers using the Luhm algorithm. This validator does
-* not validates BIN and specific brand or bank alrogithms.
+* not validates BIN and specific brand or bank algorithms.
 */
 class Validator
 {
