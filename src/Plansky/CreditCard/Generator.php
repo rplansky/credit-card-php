@@ -2,7 +2,7 @@
 namespace Plansky\CreditCard;
 
 /**
-* Generator a random credit card number from a prefix and length. This is useful
+* Generates a random credit card number from a prefix and length. This is useful
 * when you need to test some specific brand numbers that you can't find out in
 * the internet easily.
 */
@@ -44,11 +44,10 @@ class Generator
     }
 
     /**
-     * Retrieves a random number to put in the middle of card number by a given
-     * length.
+     * Retrieves a random number to put in the middle of card number
      *
      * Example:
-     *     length = 5: Generates a number between 90000 and 99999
+     *     length = 5: Generates a number between 00000 and 99999
      *
      * @param integer $length
      *
