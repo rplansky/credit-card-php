@@ -20,10 +20,8 @@ class Generator
     public function generate($prefix = null, $length = 16)
     {
         $number = $prefix . $this->getRand($length - strlen($prefix));
-        $sum    = $this->getSum($number);
-        $verificationDigit = 10 - ($sum % 10 ?: 10);
 
-        return $number . $verificationDigit;
+        return $number . (new LuhmCalculator())->verificationDigit($number);
     }
 
     /**
@@ -62,26 +60,6 @@ class Generator
             '9' . str_repeat('0', $length - 1),
             str_repeat('9', $length)
         );
-    }
-
-    /**
-     * Retrieves sum of the given number
-     *
-     * @param string|integer $number
-     *
-     * @return integer
-     */
-    private function getSum($number)
-    {
-        $numberArray = array_reverse(str_split($number));
-
-        $sum = 0;
-        for ($index = 0; $index < count($numberArray); $index++) {
-            $digit = (int)$numberArray[$index];
-            $sum += ($index % 2 == 0) ? $this->multiplyNumber($digit) : $digit;
-        }
-
-        return $sum;
     }
 
     /**
