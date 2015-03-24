@@ -1,8 +1,19 @@
 # Credit Card helpers in PHP
 
-This is a simple package to create and/or validate credit card numbers.
+This is a simple package to create and validate credit card numbers.
 
-## Validate Numbers
+## Installation via Composer
+
+```json
+"require": {
+    "rplansky/credit-card": "dev-master"
+}
+
+```
+
+## Usage
+
+### Validate Numbers
 
 This validator uses the [Luhn Algorithm](http://en.wikipedia.org/wiki/Luhn_algorithm)
 
@@ -12,9 +23,9 @@ $validator->isValid('57234651187928922');
 // true
 ```
 
-## Generate Random Numbers
+### Generate Random Numbers
 
-### Tottaly random
+#### Tottaly random
 
 ```php
 $generator = new Plansky\CreditCard\Generator();
@@ -22,7 +33,7 @@ $generator->generate();
 // 99119662018492824
 ```
 
-### Prefix
+#### Prefix
 
 You can generate a random number using a brand prefix.
 
@@ -32,7 +43,7 @@ $generator->generate(301); // Generates a DINERS number
 // 30192056094873699
 ```
 
-### Length
+#### Length
 
 Some brands have different number length.
 
@@ -42,7 +53,7 @@ $generator->generate(347, 15); // Generates an AMEX number
 // 3479966030620031
 ```
 
-## Generating Lots
+### Generating Lots
 
 Using same parameters of `generate` method, except for the first parameter that
 is the amount of numbers that you want to generate, you can generate a lot of
