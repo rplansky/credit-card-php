@@ -4,7 +4,7 @@ namespace Plansky\CreditCard;
 /**
 * It calculates the sum of a given number using Luhm's algorithm
 */
-class LuhmCalculator
+class LuhnCalculator
 {
     /**
      * Executes Luhm algorithm over the given number and return the sum. This

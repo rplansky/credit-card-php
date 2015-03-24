@@ -21,7 +21,7 @@ class Generator
     {
         $number = $prefix . $this->getRand($length - strlen($prefix));
 
-        return $number . (new LuhmCalculator())->verificationDigit($number);
+        return $number . (new LuhnCalculator())->verificationDigit($number);
     }
 
     /**

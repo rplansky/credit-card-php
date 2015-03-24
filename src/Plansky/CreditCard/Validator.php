@@ -19,6 +19,6 @@ class Validator
         $lastDigit = substr($number, -1);
         $number    = substr($number, 0, -1);
 
-        return (new LuhmCalculator())->verificationDigit($number) == $lastDigit;
+        return (new LuhnCalculator())->verificationDigit($number) == $lastDigit;
     }
 }
