@@ -1,5 +1,17 @@
 # Credit Card helpers in PHP
 
+This is a simple package to create and/or validate credit card numbers.
+
+## Validate Numbers
+
+This validator uses the [Luhn Algorithm](http://en.wikipedia.org/wiki/Luhn_algorithm)
+
+```php
+$validator = new Plansky\CreditCard\Validator();
+$validator->isValid('57234651187928922');
+// true
+```
+
 ## Generate Random Numbers
 
 ### Tottaly random
