@@ -56,7 +56,7 @@ class Generator
     private function getRand($length)
     {
         $rand = '';
-        for ($index = 1; $index <= $length; $index++) {
+        for ($index = 1; $index < $length; $index++) {
             $rand .= rand(0, 9);
         }
 
