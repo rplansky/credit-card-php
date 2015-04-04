@@ -1,0 +1,31 @@
+#!/usr/bin/php
+<?php
+require __DIR__.'/../src/Plansky/CreditCard/Validator.php';
+require __DIR__.'/../src/Plansky/CreditCard/LuhnCalculator.php';
+
+unset($argv[0]);
+
+$validator = new Plansky\CreditCard\Validator();
+
+$length = 0;
+$result = [];
+
+foreach ($argv as $number) {
+    $result[] = [
+        'number' => $number,
+        'valid'  => $validator->isValid($number) ? 'valid' : 'invalid',
+    ];
+
+    if (strlen($number) > $length) {
+        $length = strlen($number);
+    }
+}
+
+foreach ($result as $line) {
+    echo sprintf(
+        '%s %s| %s',
+        $line['number'],
+        str_repeat(' ', $length - strlen($line['number'])),
+        $line['valid']
+    ).PHP_EOL;
+}
