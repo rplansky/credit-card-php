@@ -20,7 +20,7 @@ This kind of installation is useful to use `ccgenerator` and `ccvalidator`
 commands globally on command line
 
 ```shell
-$ composer global require "rplansky/credit-card=dev-master"
+$ composer global require "rplansky/credit-card=*"
 ```
 
 ## Usage
