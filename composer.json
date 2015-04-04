@@ -12,6 +12,10 @@
     "require": {
         "php": ">=5.4.0"
     },
+    "bin": [
+        "bin/ccgenerator",
+        "bin/ccvalidator"
+    ],
     "autoload": {
         "psr-0": {
             "Plansky\\CreditCard": "src/"
