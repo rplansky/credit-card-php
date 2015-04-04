@@ -4,16 +4,30 @@ This is a simple package to create and validate credit card numbers.
 
 ## Installation via Composer
 
+### In your project
+
+To use this package in your project, add it to your `composer.json`
+
 ```json
 "require": {
     "rplansky/credit-card": "dev-master"
 }
+```
 
+### Global Installation
+
+This kind of installation is useful to use `ccgenerator` and `ccvalidator`
+commands globally on command line
+
+```shell
+$ composer global require "rplansky/credit-card=dev-master"
 ```
 
 ## Usage
 
-### Validate Numbers
+### In code
+
+#### Validate Numbers
 
 This validator uses the [Luhn Algorithm](http://en.wikipedia.org/wiki/Luhn_algorithm)
 
@@ -23,9 +37,9 @@ $validator->isValid('57234651187928922');
 // true
 ```
 
-### Generate Random Numbers
+#### Generate Random Numbers
 
-#### Tottaly random
+##### Totally random
 
 ```php
 $generator = new Plansky\CreditCard\Generator();
@@ -33,7 +47,7 @@ $generator->generate();
 // 99119662018492824
 ```
 
-#### Prefix
+##### Prefix
 
 You can generate a random number using a brand prefix.
 
@@ -43,7 +57,7 @@ $generator->generate(301); // Generates a DINERS number
 // 30192056094873699
 ```
 
-#### Length
+##### Length
 
 Some brands have different number length.
 
@@ -53,7 +67,7 @@ $generator->generate(347, 15); // Generates an AMEX number
 // 3479966030620031
 ```
 
-### Generating Lots
+#### Generating Lots
 
 Using same parameters of `generate` method, except for the first parameter that
 is the amount of numbers that you want to generate, you can generate a lot of
@@ -74,4 +88,28 @@ $generator->generateLot(10, 347, 15); // Generates 10 AMEX numbers
 //   8 => '3479219690811825',
 //   9 => '3479326005723791'
 // )
+```
+
+### In command line
+
+#### ccgenerator
+
+You can use same parameters of `Generator::generateLot()` method, plus,
+`separator` parameter to render your output
+
+```shell
+$ ccgenerator --amount=3 --prefix=347 --length=15 --separator=" "
+# 347544073859505 347615533406853 347845409364916
+```
+
+#### ccvalidator
+
+You can pass numbers separated by spaces to validate more than one number at
+once.
+
+```shell
+$ ccvalidator 347544073859505 347615533406852 347845409364916
+# 347544073859505 | valid
+# 347615533406852 | invalid
+# 347845409364916 | valid
 ```
