@@ -12,8 +12,8 @@ class Generator
      * Generates the random credit card number using the given prefix and
      * length. It uses default otherwise
      *
-     * @param string|integer $prefix
-     * @param integer        $length
+     * @param integer $prefix
+     * @param integer $length
      *
      * @return string
      */
@@ -27,11 +27,11 @@ class Generator
     /**
      * Generates the given amount of credit card numbers
      *
-     * @param integer        $amount
-     * @param string|integer $prefix
-     * @param integer        $length
+     * @param integer $amount
+     * @param integer $prefix
+     * @param integer $length
      *
-     * @return [type]          [description]
+     * @return integer[]
      */
     public function generateLot($amount, $prefix = null, $length = 16)
     {
