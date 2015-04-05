@@ -9,7 +9,7 @@ $parameters = getopt(
 );
 
 echo implode(
-    (new Plansky\CreditCard\Generator())->generateLot(
+    (new Plansky\CreditCard\Generator())->lot(
         isset($parameters['amount']) ? $parameters['amount'] : 1,
         isset($parameters['prefix']) ? $parameters['prefix'] : null,
         isset($parameters['length']) ? $parameters['length'] : 16

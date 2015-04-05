@@ -17,7 +17,7 @@ class Generator
      *
      * @return string
      */
-    public function generate($prefix = null, $length = 16)
+    public function single($prefix = null, $length = 16)
     {
         $number = $prefix . $this->getRand($length - strlen($prefix));
 
@@ -33,11 +33,11 @@ class Generator
      *
      * @return integer[]
      */
-    public function generateLot($amount, $prefix = null, $length = 16)
+    public function lot($amount, $prefix = null, $length = 16)
     {
         $numbers = [];
         for ($index = 1; $index <= $amount; $index++) {
-            $numbers[] = $this->generate($prefix, $length);
+            $numbers[] = $this->single($prefix, $length);
         }
 
         return $numbers;

@@ -43,7 +43,7 @@ $validator->isValid('57234651187928922');
 
 ```php
 $generator = new Plansky\CreditCard\Generator();
-$generator->generate();
+$generator->single();
 // 99119662018492824
 ```
 
@@ -53,7 +53,7 @@ You can generate a random number using a brand prefix.
 
 ```php
 $generator = new Plansky\CreditCard\Generator();
-$generator->generate(301); // Generates a DINERS number
+$generator->single(301); // Generates a DINERS number
 // 30192056094873699
 ```
 
@@ -63,7 +63,7 @@ Some brands have different number length.
 
 ```php
 $generator = new Plansky\CreditCard\Generator();
-$generator->generate(347, 15); // Generates an AMEX number
+$generator->single(347, 15); // Generates an AMEX number
 // 3479966030620031
 ```
 
@@ -75,7 +75,7 @@ numbers at once
 
 ```php
 $generator = new Plansky\CreditCard\Generator();
-$generator->generateLot(10, 347, 15); // Generates 10 AMEX numbers
+$generator->lot(10, 347, 15); // Generates 10 AMEX numbers
 // array(
 //   0 => '3479132843454361',
 //   1 => '3479587605801416',
@@ -94,7 +94,7 @@ $generator->generateLot(10, 347, 15); // Generates 10 AMEX numbers
 
 #### ccgenerator
 
-You can use same parameters of `Generator::generateLot()` method, plus,
+You can use same parameters of `Generator::lot()` method, plus,
 `separator` parameter to render your output
 
 ```shell
