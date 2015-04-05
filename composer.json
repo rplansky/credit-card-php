@@ -10,7 +10,8 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0"
+        "php": ">=5.4.0",
+        "phpunit/phpunit": ">=4.6"
     },
     "bin": [
         "bin/ccgenerator",
