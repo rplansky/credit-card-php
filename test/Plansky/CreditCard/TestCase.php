@@ -21,6 +21,7 @@ class TestCase extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
+        parent::setUp();
         $this->generator = new Generator();
         $this->validator = new Validator();
     }
@@ -41,7 +42,7 @@ class TestCase extends \PHPUnit_Framework_TestCase
      * @param integer $length
      * @param string  $number
      */
-    public function assertLength($length, $number)
+    protected function assertLength($length, $number)
     {
         $this->assertEquals($length, strlen($number));
     }
@@ -52,9 +53,9 @@ class TestCase extends \PHPUnit_Framework_TestCase
      * @param integer $prefix
      * @param string  $number
      */
-    public function assertPrefix($prefix, $number)
+    protected function assertPrefix($prefix, $number)
     {
-        $this->assertEquals(0, strpos($this->generator->single(123)));
+        $this->assertStringStartsWith($prefix, $number);
     }
 
     /**
@@ -62,7 +63,7 @@ class TestCase extends \PHPUnit_Framework_TestCase
      *
      * @param  integer $number
      */
-    public function assertCreditCard($number)
+    protected function assertCreditCard($number)
     {
         $lastDigit   = substr($number, -1);
         $numberArray = array_reverse(str_split($number));
