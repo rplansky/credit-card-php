@@ -83,6 +83,15 @@ class CcGeneratorTest extends \PHPUnit_Framework_TestCase
         }
     }
 
+    public function testCommandWithInvalidLengthShouldReturnsAnError()
+    {
+        $this->assertEquals(
+            'ERROR: The \'length\' parameter should be greater than '.
+            '\'prefix\' string length',
+            $this->exec(null, '12345', 5)[0]
+        );
+    }
+
     /**
      * Executes the ccgenerator command with the given parameters
      *
