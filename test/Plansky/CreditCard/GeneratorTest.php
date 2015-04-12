@@ -51,4 +51,13 @@ class GeneratorTest extends TestCase
             $this->assertLength(10, $number);
         }
     }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage The 'length' parameter should be greater than 'prefix' string length
+     */
+    public function testSingleWithInsuficientLengthShouldThrowsException()
+    {
+        $this->generator->single('1234', 4);
+    }
 }

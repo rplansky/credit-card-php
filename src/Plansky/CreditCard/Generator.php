@@ -19,6 +19,13 @@ class Generator
      */
     public function single($prefix = null, $length = 16)
     {
+        if ($length <= strlen($prefix)) {
+            throw new \InvalidArgumentException(
+                'The \'length\' parameter should be greater than \'prefix\' '.
+                'string length'
+            );
+        }
+
         $number = $prefix . $this->getRand($length - strlen($prefix));
 
         return $number . (new LuhnCalculator())->verificationDigit($number);

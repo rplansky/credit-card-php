@@ -8,11 +8,15 @@ $parameters = getopt(
     ['prefix::', 'length::', 'amount::', 'separator::']
 );
 
-echo implode(
-    (new Plansky\CreditCard\Generator())->lot(
-        isset($parameters['amount']) ? $parameters['amount'] : 1,
-        isset($parameters['prefix']) ? $parameters['prefix'] : null,
-        isset($parameters['length']) ? $parameters['length'] : 16
-    ),
-    isset($parameters['separator']) ? $parameters['separator'] : PHP_EOL
-);
+try {
+    echo implode(
+        (new Plansky\CreditCard\Generator())->lot(
+            isset($parameters['amount']) ? $parameters['amount'] : 1,
+            isset($parameters['prefix']) ? $parameters['prefix'] : null,
+            isset($parameters['length']) ? $parameters['length'] : 16
+        ),
+        isset($parameters['separator']) ? $parameters['separator'] : PHP_EOL
+    );
+} catch (\InvalidArgumentException $error) {
+    echo 'ERROR: '.$error->getMessage();
+}
